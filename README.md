@@ -15,5 +15,5 @@ Major changes made recently:
 (4) Numerous UI and wording improvements.
 
 
-Oct 20, 2017
+Oct 20, 2017<BR>
 kai.zheng@uci.edu
