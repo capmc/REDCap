@@ -2,7 +2,7 @@
 
 kai.zheng@uci.edu
 
-Nov 2, 2017
+<B>Nov 2, 2017</B>
 
 Major changes include:
 
@@ -16,7 +16,7 @@ Major changes include:
 
 (5) On "Form 9. Gift Card," added a new question "If there are further study activities of All of Us, is participant willing to continue to be involved?"
 
-Oct 20, 2017
+<B>Oct 20, 2017</B>
 
 The .xml file contains project export in the CDISC ODM format. 
 
