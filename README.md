@@ -2,6 +2,10 @@
 
 kai.zheng@uci.edu
 
+<B>Nov 14, 2017</B>
+
+Added specifications for Reports.
+
 <B>Nov 2, 2017</B>
 
 Major changes include:
