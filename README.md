@@ -6,6 +6,10 @@ kai.zheng@uci.edu
 
 Added specifications for Reports.
 
+(1) "Reports - Filters.txt" contains definitions for filters of each report.
+
+(2) "Reports - Data Fields, Live Filters, Order by.zip" contains screenshots which show data fields included in each report and Live Filter(s) and the Order By clause. 
+
 <B>Nov 2, 2017</B>
 
 Major changes include:
