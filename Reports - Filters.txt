@@ -1,0 +1,121 @@
+1) Participants for the Day
+
+datediff('today', [meeting_date_time], 'd', true) > 0 AND datediff('today', [meeting_date_time], 'd', true) < 1
+
+2) Participants for the Day (R.S.)
+
+datediff('today', [rescheduled_meeting_date_time], 'd', true) > 0 AND datediff('today', [rescheduled_meeting_date_time], 'd', true) < 1
+
+3) Agreed, No Appointment Scheduled
+
+[all_study_requirements_completed(yes)] = 1 AND [withdrawn(yes)] <> 1
+
+4) Volunteers Not Yet Enrolled
+
+(
+	starts_with([study_id], 'ZT')
+	OR starts_with([study_id], 'W')
+	OR starts_with([study_id], 'FL')
+	OR [volunteer(yes)] = 1
+)
+AND [meeting_date_time] = ''
+
+5) Contact #1 Due
+
+(
+	([initial_outreach_means] = 'letter' AND datediff([initial_outreach_date], 'today', 'd', true) >= 3)
+	OR
+	([initial_outreach_means] = 'email' AND datediff([initial_outreach_date], 'today', 'd', true) >= 0)
+)
+AND [contact_1_date_time] = ''
+AND [decision] <> 'yes'
+AND [decision] <> 'no'
+AND [decision] <> 'lost_to_follow_up'
+AND [withdrawn(yes)] <> 1
+
+6) Contact #2 Due
+
+datediff([contact_1_date_time], 'today', 'h', true) >= 7
+AND [contact_2_date_time] = ''
+AND [decision] <> 'yes'
+AND [decision] <> 'no'
+AND [decision] <> 'lost_to_follow_up'
+AND [withdrawn(yes)] <> 1
+
+7) Contact #3 Due
+
+datediff([contact_2_date_time], 'today', 'h', true) >= 7
+AND [contact_3_date_time] = ''
+AND [decision] <> 'yes'
+AND [decision] <> 'no'
+AND [decision] <> 'lost_to_follow_up'
+AND [withdrawn(yes)] <> 1
+
+8) Contact #4 Due
+
+datediff([contact_3_date_time], 'today', 'h', true) >= 7
+AND [contact_4_date_time] = ''
+AND [decision] <> 'yes'
+AND [decision] <> 'no'
+AND [decision] <> 'lost_to_follow_up'
+AND [withdrawn(yes)] <> 1
+
+9) Gift Cards Dispensed
+
+[gift_card_number] <> ''
+
+10) ++++++++++++++++++++++++++++++
+
+Report 10 is used as a section separator.
+
+#############
+ADMIN REPORTS
+#############
+
+11) Letter/Email Due
+
+[initial_outreach_date] = '' AND datediff('today', [appointment_date], 'd', true) >= 0
+
+#########################################################################################
+Reports 12, 13, 14 are required for CAPMC Dashboard. See http://hai.ics.uci.edu/allofus/.
+#########################################################################################
+
+12) Admin: Dashboard
+
+[meeting_date_time] <> '' AND [withdrawn(yes)] <> 1
+
+13) Admin: Dashboard (R.S.)
+
+[rescheduled_meeting_date_time] <> ‘' AND [withdrawn(yes)] <> 1
+
+14) Admin: Dashboard (Completed)
+
+[all_study_requirements_completed(yes)] = 1 AND [withdrawn(yes)] <> 1
+
+#################################################################################################
+Reports 15, 16, 17 are required for Study Calendar. See http://hai.ics.uci.edu/allofus/calendar/.
+#################################################################################################
+
+15) Admin: Study Calendar
+
+[meeting_date_time] <> '' AND datediff('today', [meeting_date_time], 'd', true) >= -14 AND [withdrawn(yes)] <> 1
+
+16) Admin: Study Calendar (R.S.)
+
+[rescheduled_meeting_date_time] <> '' AND datediff('today', [rescheduled_meeting_date_time], 'd', true) >= -14 AND [withdrawn(yes)] <> 1
+
+17) Admin: Participant Search
+
+No filters
+
+###########################################################################################
+Report 18 is required for Study Statistics. See http://hai.ics.uci.edu/allofus/statistics/.
+###########################################################################################
+
+18) Admin: Recruitment Statistics
+
+[initial_outreach_date] <> '' AND contains([study_id], 'PM-')
+
+19) Admin: Thank-You Note to be Sent
+
+[all_study_requirements_completed(yes)] = 1 AND [thank_you_note_sent(yes)] = 0
