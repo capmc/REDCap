@@ -8,10 +8,10 @@ kai.zheng@uci.edu
 
 (2) Added a new question on "Form 7. Meeting Results" and "Form 8. Rescheduled Meetings":
 
-EHR consent provided in Patient Portal?
-Yes
-No, declined to provide
-Not yet, but will provide it
+EHR consent provided in Patient Portal?<BR>
+Yes<BR>
+No, declined to provide<BR>
+Not yet, but will provide it<BR>
 Other (specify in notes)
 
 (3) On "Form 1. Profile & Clinic Appointment", revised the label "Date added" to "Date added or updated". Variable name remains unchanged ("date_added").
