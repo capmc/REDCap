@@ -2,6 +2,20 @@
 
 kai.zheng@uci.edu
 
+<B>Dec 5, 2017</B>
+
+(1) Minor revision to the filter of "Report 4. Volunteers Not Yet Enrolled".
+
+(2) Added a new question on "Form 7. Meeting Results" and "Form 8. Rescheduled Meetings":
+
+EHR consent provided in Patient Portal?
+Yes
+No, declined to provide
+Not yet, but will provide it
+Other (specify in notes)
+
+(3) On "Form 1. Profile & Clinic Appointment", revised the label "Date added" to "Date added or updated". Variable name remains unchanged ("date_added").
+
 <B>Nov 14, 2017</B>
 
 Added specifications for Reports.
