@@ -2,6 +2,19 @@
 
 kai.zheng@uci.edu
 
+<B>Dec 9, 2017</B>
+
+(1) In question "Agreed to participate?" on "Form 4. Decision", added a new response option:
+
+not_uci_patient, Not UCI Health patient
+
+(2) As a result, modified the filter logics for the following Reports:
+
+Contact #1 Due
+Contact #2 Due
+Contact #3 Due
+Contact #4 Due
+
 <B>Dec 5, 2017</B>
 
 (1) Minor revision to the filter of "Report 4. Volunteers Not Yet Enrolled".
