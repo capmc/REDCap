@@ -10,9 +10,9 @@ not_uci_patient, Not UCI Health patient
 
 (2) As a result, modified the filter logics for the following Reports:
 
-Contact #1 Due
-Contact #2 Due
-Contact #3 Due
+Contact #1 Due<BR>
+Contact #2 Due<BR>
+Contact #3 Due<BR>
 Contact #4 Due
 
 <B>Dec 5, 2017</B>
