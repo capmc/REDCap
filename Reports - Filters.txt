@@ -22,40 +22,32 @@ AND [meeting_date_time] = ''
 
 (
 	([initial_outreach_means] = 'letter' AND datediff([initial_outreach_date], 'today', 'd', true) >= 3)
-	OR
-	([initial_outreach_means] = 'email' AND datediff([initial_outreach_date], 'today', 'd', true) >= 0)
+	OR ([initial_outreach_means] <> '' AND [initial_outreach_means] <> 'letter')
+	OR ([initial_outreach_means] = '' AND [initial_outreach_date] <> '')
 )
 AND [contact_1_date_time] = ''
-AND [decision] <> 'yes'
-AND [decision] <> 'no'
-AND [decision] <> 'lost_to_follow_up'
+AND ([decision] = '' OR [decision] = 'unsure_contact_again' OR [decision] = 'unsure_more_info')
 AND [withdrawn(yes)] <> 1
 
 6) Contact #2 Due
 
 datediff([contact_1_date_time], 'today', 'h', true) >= 7
 AND [contact_2_date_time] = ''
-AND [decision] <> 'yes'
-AND [decision] <> 'no'
-AND [decision] <> 'lost_to_follow_up'
+AND ([decision] = '' OR [decision] = 'unsure_contact_again' OR [decision] = 'unsure_more_info')
 AND [withdrawn(yes)] <> 1
 
 7) Contact #3 Due
 
 datediff([contact_2_date_time], 'today', 'h', true) >= 7
 AND [contact_3_date_time] = ''
-AND [decision] <> 'yes'
-AND [decision] <> 'no'
-AND [decision] <> 'lost_to_follow_up'
+AND ([decision] = '' OR [decision] = 'unsure_contact_again' OR [decision] = 'unsure_more_info')
 AND [withdrawn(yes)] <> 1
 
 8) Contact #4 Due
 
 datediff([contact_3_date_time], 'today', 'h', true) >= 7
 AND [contact_4_date_time] = ''
-AND [decision] <> 'yes'
-AND [decision] <> 'no'
-AND [decision] <> 'lost_to_follow_up'
+AND ([decision] = '' OR [decision] = 'unsure_contact_again' OR [decision] = 'unsure_more_info')
 AND [withdrawn(yes)] <> 1
 
 9) Gift Cards Dispensed
