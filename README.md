@@ -23,8 +23,9 @@ Admin: Dashboard (Completed)<BR>
 
 (4) Uploaded two zip files:
 
-All_of_Us_Email.zip: Containing code for sending weekly recruitment emails. Sending results are manually imported into REDCap.<P>
-All_of_Us_Thank_You_Email.zip: containing code for sending daily thank-you note for those who completed the study. Sending results are automatically updated in REDCap via API (recorded in "Form 11. Admin").
+All_of_Us_Email.zip: Containing code for sending weekly recruitment emails. Sending results are manually imported into REDCap.
+
+All_of_Us_Thank_You_Email.zip: Containing code for sending daily thank-you note for those who completed the study. Sending results are automatically updated in REDCap via API (recorded in "Form 11. Admin").
 
 <B>Dec 5, 2017</B>
 
