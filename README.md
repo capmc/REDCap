@@ -1,4 +1,4 @@
-# CAPMC Recuitment Tracking Project in REDCap
+# CAPMC Recruitment Tracking Project in REDCap
 
 kai.zheng@uci.edu
 
@@ -15,11 +15,16 @@ Contact #2 Due<BR>
 Contact #3 Due<BR>
 Contact #4 Due
 
-(3) Modified the filter logic for the following Reports to imporve performance of the Dashbaord (by adding date constraints to reduce unncessary API data pull):
+(3) Modified the filter logic for the following Reports to improve performance of the Dashboard (by adding date constraints to reduce unnecessary API data pull):
 
 Admin: Dashboard<BR>
 Admin: Dashboard (R.S.)<BR>
 Admin: Dashboard (Completed)<BR>
+
+(4) Uploaded two zip files:
+
+All_of_Us_Email.zip: Containing code for sending weekly recruitment emails. Sending results are manually imported into REDCap.<BR>
+All_of_Us_Thank_You_Email.zip: containing code for sending daily thank-you note for those who completed the study. Sending results are automatically updated in REDCap via API (recorded in "Form 11. Admin").
 
 <B>Dec 5, 2017</B>
 
