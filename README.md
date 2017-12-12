@@ -15,7 +15,7 @@ Contact #2 Due<BR>
 Contact #3 Due<BR>
 Contact #4 Due
 
-(3) Modified the filter logic for the following Reports to imporve performance of the Dashbaord, by adding date constraints to reduce unncessary API data pull:
+(3) Modified the filter logic for the following Reports to imporve performance of the Dashbaord (by adding date constraints to reduce unncessary API data pull):
 
 Admin: Dashboard<BR>
 Admin: Dashboard (R.S.)<BR>
