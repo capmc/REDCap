@@ -2,7 +2,7 @@
 
 kai.zheng@uci.edu
 
-<B>Dec 9, 2017</B>
+<B>Dec 11, 2017</B>
 
 (1) In question "Agreed to participate?" on "Form 4. Decision", added a new response option:
 
@@ -14,6 +14,12 @@ Contact #1 Due<BR>
 Contact #2 Due<BR>
 Contact #3 Due<BR>
 Contact #4 Due
+
+(3) Modified the filter logic for the following Reports to imporve performance of the Dashbaord, by adding date constraints to reduce unncessary API data pull:
+
+Admin: Dashboard<BR>
+Admin: Dashboard (R.S.)<BR>
+Admin: Dashboard (Completed)<BR>
 
 <B>Dec 5, 2017</B>
 
