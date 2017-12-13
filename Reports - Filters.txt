@@ -104,6 +104,8 @@ Reports 15, 16, 17 are required for Study Calendar. See http://hai.ics.uci.edu/a
 
 No filters
 
+Note: The "Admin: Participant Search" report contains PHI.
+
 ###########################################################################################
 Report 18 is required for Study Statistics. See http://hai.ics.uci.edu/allofus/statistics/.
 ###########################################################################################
