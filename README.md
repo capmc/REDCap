@@ -2,6 +2,14 @@
 
 kai.zheng@uci.edu
 
+<B>Feb 28, 2018</B>
+
+(1) In question "Agreed to participate?" on "Form 4. Decision", added a new response option:
+
+On "Form 1. Profile & Clinic Appointment," added a new question:
+
+Exclude? (Possible reasons for exclusion: duplicated record, responded "unsubscribe" to study emails, deceased, etc.)
+
 <B>Dec 11, 2017</B>
 
 (1) In question "Agreed to participate?" on "Form 4. Decision", added a new response option:
