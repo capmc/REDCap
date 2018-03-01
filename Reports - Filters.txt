@@ -80,13 +80,7 @@ Reports 12, 13, 14 are required for CAPMC Dashboard. See http://hai.ics.uci.edu/
 
 14) Admin: Dashboard (Completed)
 
-[all_study_requirements_completed(yes)] = 1
-AND 
-(
-	datediff('today', [meeting_date_time], 'd', true) >= -28
-	OR datediff('today', [rescheduled_meeting_date_time], 'd', true) >= -28
-)
-AND [withdrawn(yes)] <> 1
+[all_study_requirements_completed(yes)] = 1 AND [withdrawn(yes)] <> 1
 
 #################################################################################################
 Reports 15, 16, 17 are required for Study Calendar. See http://hai.ics.uci.edu/allofus/calendar/.
