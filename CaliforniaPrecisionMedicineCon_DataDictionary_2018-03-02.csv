@@ -1,0 +1,327 @@
+"Variable / Field Name","Form Name","Section Header","Field Type","Field Label","Choices, Calculations, OR Slider Labels","Field Note","Text Validation Type OR Show Slider Number","Text Validation Min","Text Validation Max",Identifier?,"Branching Logic (Show field only if...)","Required Field?","Custom Alignment","Question Number (surveys only)","Matrix Group Name","Matrix Ranking?","Field Annotation"
+study_id,profile_clinic_appointment,,text,"Study ID",,,,,,,,,,,,,
+mrn,profile_clinic_appointment,"
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN><HR style=""background-color:LightGray;height:1px""><SPAN style=""font-weight:normal;color:Red"">DO NOT MODIFY PATIENT PROFILES AUTOMATICALLY POPULATED FROM ELECTRONIC HEALTH RECORDS.</SPAN>
+
+",text,"Medical record number (MRN)",,,,,,y,,,LV,,,,
+first_name,profile_clinic_appointment,,text,"First name",,,,,,y,,,LV,,,,
+last_name,profile_clinic_appointment,,text,"Last name",,,,,,y,,,LV,,,,
+dob,profile_clinic_appointment,,text,"Date of birth",,,,,,y,,,LV,,,,
+sex,profile_clinic_appointment,,dropdown,Sex,"1, Male | 2, Female | 3, Unknown",,,,,,,,LV,,,,
+race,profile_clinic_appointment,,dropdown,Race,"1, African-American or Black | 2, American Indian or Alaska Native | 3, Asian | 4, Native Hawaiian or other Pacific Islander | 5, White",,,,,,,,LV,,,,
+ethnicity,profile_clinic_appointment,,dropdown,Ethnicity,"1, Hispanic or Latino | 2, Not Hispanic or Latino",,,,,,,,LV,,,,
+street_address_line_1,profile_clinic_appointment,,text,"Street address line 1",,,,,,y,,,LV,,,,
+street_address_line_2,profile_clinic_appointment,,text,"Street address line 2",,,,,,y,,,LV,,,,
+city,profile_clinic_appointment,,text,City,,,,,,,,,LV,,,,
+state,profile_clinic_appointment,,text,State,,,,,,,,,LV,,,,
+zip_code,profile_clinic_appointment,,text,"Zip code",,,,,,y,,,LV,,,,
+email_address,profile_clinic_appointment,,text,"Email address",,,,,,y,,,LV,,,,
+phone_number,profile_clinic_appointment,,text,"Phone number",,,,,,y,,,LV,,,,
+appointment_clinic,profile_clinic_appointment,,text,"Appointment clinic",,,,,,,,,LV,,,,
+physician,profile_clinic_appointment,,text,"Physician scheduled to see",,,,,,,,,LV,,,,
+appointment_date,profile_clinic_appointment,,text,"Appointment date",,,date_mdy,,,y,,,LV,,,,
+appointment_time,profile_clinic_appointment,,text,"Appointment time",,,,,,,,,LV,,,,
+preferred_language,profile_clinic_appointment,,text,"Preferred language",,,,,,,,,LV,,,,
+date_added,profile_clinic_appointment,,text,"Date added or updated",,,date_mdy,,,,,,LV,,,,
+volunteer,profile_clinic_appointment,"
+<SPAN style=""font-weight:normal;color:Red"">THE SECTION BELOW CAN BE MODIFIED.</SPAN>
+
+",checkbox,"Volunteered to participate ? E.g., the person responded to Zotmail invitation to indicate interest in participation.","yes, Yes",,,,,,,,LV,,,,
+duplicate,profile_clinic_appointment,,checkbox,"Do not use. Duplicated record. Information about this participant is recorded under another Study ID.","yes, Yes",,,,,,,,LV,,,,
+do_not_contact,profile_clinic_appointment,,checkbox,"Do not contact. Deceased or declined to receive future study communications.","yes, Yes",,,,,,,,LV,,,,
+exclusion_notes,profile_clinic_appointment,,notes,"Exclusion notes",,,,,,,,,LV,,,,
+initial_outreach_date,initial_outreach,"
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN>
+
+",text,"Initial outreach date",,,date_mdy,,,,,,LV,,,,
+initial_outreach_means,initial_outreach,,radio,"Initial outreach means","letter, Letter | email, Email | in_person, In-person recruitment | employee_mailing_list, Employee mailing list | other, Other (specify in notes)",,,,,,,,LV,,,,
+nih_invitation_code,initial_outreach,,text,"NIH Invitation Code",,,,,,,,,LV,,,,
+initial_outreach_letter_returned,initial_outreach,,radio,"If letter gets returned","resent, Resent using new or corrected mailing address (specify new or corrected mailing address below) | no_action, No action, forwarding address not available | other, Other action (specify in notes)",,,,,,"[initial_outreach_means] = 'letter'",,LV,,,,
+initial_outreach_new_mailing_address,initial_outreach,,notes,"New or corrected mailing address, if any",,,,,,y,"[initial_outreach_means] = 'letter'",,LV,,,,
+initial_outreach_email_rejected,initial_outreach,,radio,"If email gets rejected","resent, Resent using new or corrected email address (specify new or corrected email address on Form 3) | no_action, No action, alternative email address not available | other, Other action (specify in notes)",,,,,,"[initial_outreach_means] = 'email'",,LV,,,,
+initial_outreach_notes,initial_outreach,,notes,Notes,,,,,,,,,LV,,,,
+preferred_methods_of_contact,followup_recruitment_contacts,"
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN>
+
+",text,"Preferred method(s) of contact <SPAN style=""font-weight:normal"">(e.g., phone, text message, email)</SPAN>",,,,,,,,,LV,,,,
+new_preferred_language,followup_recruitment_contacts,,text,"Updated language preference, if any <SPAN style=""color:Red"">(current preference: [preferred_language])</SPAN>",,,,,,,,,LV,,,,
+new_phone_number,followup_recruitment_contacts,,text,"New or corrected phone number, if any <SPAN style=""color:Red"">(current phone number: [phone_number])</SPAN>",,,phone,,,y,,,LV,,,,
+new_email_address,followup_recruitment_contacts,,text,"New or corrected email address, if any <SPAN style=""color:Red"">(current email address: <A href=""mailto:[first_name]%20[last_name]%20%3c[email_address]%3e"" style=""color:DeepSkyBlue"">[email_address]</A>)</SPAN>",,,email,,,y,,,LV,,,,
+contact_1_date_time,followup_recruitment_contacts,"
+<SPAN style=""color:Red"">CONTACT #1</SPAN>
+
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PHONE NUMBER: [phone_number]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[email_address]%3e"" style=""color:DeepSkyBlue"">[email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PREFERRED LANGUAGE: [preferred_language]</SPAN><HR style=""background-color:LightGray;height:1px""><SPAN style=""font-weight:normal;color:Red"">INITIAL OUTREACH: [initial_outreach_means], [initial_outreach_date]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">CLINIC APPOINTMENT: [appointment_clinic], [appointment_date] [appointment_time]</SPAN>
+
+",text,"Contact #1 date and time",,,datetime_mdy,,,,,,LV,,,,
+contact_1_crc,followup_recruitment_contacts,,radio,"Who made contact #1?","Jennifer, Jennifer Encizo | Farheen, Farheen Faruk | Crystal, Crystal Lee | Irene, Irene Masunaka | Gabriela, Gabriela Medina | Maira, Maira Moctezuma | Sarah, Sarah Pachman | Brianna, Brianna Sigala | Byron, Byron Villagran | System, Auto-Email by the System",,,,,,,,LV,,,,
+contact_1_outcomes,followup_recruitment_contacts,,radio,"Contact #1 outcomes","called_spoke_with_participant, Called, spoke with the prospective participant | called_spoke_with_someone_else, Called, spoke with someone else | called_left_voicemail, Called, no answer, left voicemail | called_no_voicemail_or_full, Called, no answer, and no voicemail or voicemail full | called_wrong_number, Called, wrong # (if available, specify alternative phone # in ""new or corrected phone number"" to the top of this form) | email_sent_success, Email sent, success | email_rejected, Email rejected (if available, specify alternative email address in ""new or corrected email address"" to the top of this form) | no_phone_or_email, Neither phone # nor email address is available | other, Other (specify in notes below)",,,,,,,,LV,,,,
+contact_1_notes,followup_recruitment_contacts,,notes,"Contact #1 notes",,,,,,,,,LV,,,,
+contact_2,followup_recruitment_contacts,,checkbox,"Add contact #2?","yes, Yes",,,,,,"[contact_1_date_time] <> ''",,LV,,,,
+contact_2_date_time,followup_recruitment_contacts,"
+<SPAN style=""color:Red"">CONTACT #2</SPAN>
+
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PREFERRED METHOD(S) OF CONTACT: [preferred_methods_of_contact]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PHONE NUMBER: [phone_number]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NEW/CORRECTED PHONE NUMBER: [new_phone_number]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[email_address]%3e"" style=""color:DeepSkyBlue"">[email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NEW/CORRECTED EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[new_email_address]%3e"" style=""color:DeepSkyBlue"">[new_email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PREFERRED LANGUAGE: [preferred_language]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">UPDATED LANGUAGE PREFERENCE: [new_preferred_language]</SPAN><HR style=""background-color:LightGray;height:1px""><SPAN style=""font-weight:normal;color:Red"">INITIAL OUTREACH: [initial_outreach_means], [initial_outreach_date]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">CLINIC APPOINTMENT: [appointment_clinic], [appointment_date] [appointment_time]</SPAN>
+
+",text,"Contact #2 date and time",,,datetime_mdy,,,,"[contact_2(yes)] = 1",,LV,,,,
+contact_2_crc,followup_recruitment_contacts,,radio,"Who made contact #2?","Jennifer, Jennifer Encizo | Farheen, Farheen Faruk | Crystal, Crystal Lee | Irene, Irene Masunaka | Gabriela, Gabriela Medina | Maira, Maira Moctezuma | Sarah, Sarah Pachman | Brianna, Brianna Sigala | Byron, Byron Villagran | System, Auto-Email by the System",,,,,,"[contact_2(yes)] = 1",,LV,,,,
+contact_2_outcomes,followup_recruitment_contacts,,radio,"Contact #2 outcomes","called_spoke_with_participant, Called, spoke with the prospective participant | called_spoke_with_someone_else, Called, spoke with someone else | called_left_voicemail, Called, no answer, left voicemail | called_no_voicemail_or_full, Called, no answer, and no voicemail or voicemail full | called_wrong_number, Called, wrong # (if available, specify alternative phone # in ""new or corrected phone number"" to the top of this form) | email_sent_success, Email sent, success | email_rejected, Email rejected (if available, specify alternative email address in ""new or corrected email address"" to the top of this form) | no_phone_or_email, Neither phone # nor email address is available | other, Other (specify in notes below)",,,,,,"[contact_2(yes)] = 1",,LV,,,,
+contact_2_notes,followup_recruitment_contacts,,notes,"Contact #2 notes",,,,,,,"[contact_2(yes)] = 1",,LV,,,,
+contact_3,followup_recruitment_contacts,,checkbox,"Add contact #3?","yes, Yes",,,,,,"[contact_2_date_time] <> ''",,LV,,,,
+contact_3_date_time,followup_recruitment_contacts,"
+<SPAN style=""color:Red"">CONTACT #3</SPAN>
+
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PREFERRED METHOD(S) OF CONTACT: [preferred_methods_of_contact]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PHONE NUMBER: [phone_number]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NEW/CORRECTED PHONE NUMBER: [new_phone_number]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[email_address]%3e"" style=""color:DeepSkyBlue"">[email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NEW/CORRECTED EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[new_email_address]%3e"" style=""color:DeepSkyBlue"">[new_email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PREFERRED LANGUAGE: [preferred_language]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">UPDATED LANGUAGE PREFERENCE: [new_preferred_language]</SPAN><HR style=""background-color:LightGray;height:1px""><SPAN style=""font-weight:normal;color:Red"">INITIAL OUTREACH: [initial_outreach_means], [initial_outreach_date]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">CLINIC APPOINTMENT: [appointment_clinic], [appointment_date] [appointment_time]</SPAN>
+
+",text,"Contact #3 date and time",,,datetime_mdy,,,,"[contact_3(yes)] = 1",,LV,,,,
+contact_3_crc,followup_recruitment_contacts,,radio,"Who made contact #3?","Jennifer, Jennifer Encizo | Farheen, Farheen Faruk | Crystal, Crystal Lee | Irene, Irene Masunaka | Gabriela, Gabriela Medina | Maira, Maira Moctezuma | Sarah, Sarah Pachman | Brianna, Brianna Sigala | Byron, Byron Villagran | System, Auto-Email by the System",,,,,,"[contact_3(yes)] = 1",,LV,,,,
+contact_3_outcomes,followup_recruitment_contacts,,radio,"Contact #3 outcomes","called_spoke_with_participant, Called, spoke with the prospective participant | called_spoke_with_someone_else, Called, spoke with someone else | called_left_voicemail, Called, no answer, left voicemail | called_no_voicemail_or_full, Called, no answer, and no voicemail or voicemail full | called_wrong_number, Called, wrong # (if available, specify alternative phone # in ""new or corrected phone number"" to the top of this form) | email_sent_success, Email sent, success | email_rejected, Email rejected (if available, specify alternative email address in ""new or corrected email address"" to the top of this form) | no_phone_or_email, Neither phone # nor email address is available | other, Other (specify in notes below)",,,,,,"[contact_3(yes)] = 1",,LV,,,,
+contact_3_notes,followup_recruitment_contacts,,notes,"Contact #3 notes",,,,,,,"[contact_3(yes)] = 1",,LV,,,,
+contact_4,followup_recruitment_contacts,,checkbox,"Add contact #4?","yes, Yes",,,,,,"[contact_3_date_time] <> ''",,LV,,,,
+contact_4_date_time,followup_recruitment_contacts,"
+<SPAN style=""color:Red"">CONTACT #4</SPAN>
+
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PREFERRED METHOD(S) OF CONTACT: [preferred_methods_of_contact]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PHONE NUMBER: [phone_number]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NEW/CORRECTED PHONE NUMBER: [new_phone_number]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[email_address]%3e"" style=""color:DeepSkyBlue"">[email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NEW/CORRECTED EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[new_email_address]%3e"" style=""color:DeepSkyBlue"">[new_email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PREFERRED LANGUAGE: [preferred_language]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">UPDATED LANGUAGE PREFERENCE: [new_preferred_language]</SPAN><HR style=""background-color:LightGray;height:1px""><SPAN style=""font-weight:normal;color:Red"">INITIAL OUTREACH: [initial_outreach_means], [initial_outreach_date]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">CLINIC APPOINTMENT: [appointment_clinic], [appointment_date] [appointment_time]</SPAN>
+
+",text,"Contact #4 date and time",,,datetime_mdy,,,,"[contact_4(yes)] = 1",,LV,,,,
+contact_4_crc,followup_recruitment_contacts,,radio,"Who made contact #4?","Jennifer, Jennifer Encizo | Farheen, Farheen Faruk | Crystal, Crystal Lee | Irene, Irene Masunaka | Gabriela, Gabriela Medina | Maira, Maira Moctezuma | Sarah, Sarah Pachman | Brianna, Brianna Sigala | Byron, Byron Villagran | System, Auto-Email by the System",,,,,,"[contact_4(yes)] = 1",,LV,,,,
+contact_4_outcomes,followup_recruitment_contacts,,radio,"Contact #4 outcomes","called_spoke_with_participant, Called, spoke with the prospective participant | called_spoke_with_someone_else, Called, spoke with someone else | called_left_voicemail, Called, no answer, left voicemail | called_no_voicemail_or_full, Called, no answer, and no voicemail or voicemail full | called_wrong_number, Called, wrong # (if available, specify alternative phone # in ""new or corrected phone number"" to the top of this form) | email_sent_success, Email sent, success | email_rejected, Email rejected (if available, specify alternative email address in ""new or corrected email address"" to the top of this form) | no_phone_or_email, Neither phone # nor email address is available | other, Other (specify in notes below)",,,,,,"[contact_4(yes)] = 1",,LV,,,,
+contact_4_notes,followup_recruitment_contacts,,notes,"Contact #4 notes",,,,,,,"[contact_4(yes)] = 1",,LV,,,,
+decision_date,decision,"
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN>
+
+",text,"Decision date",,,date_mdy,,,,,,LV,,,,
+decision,decision,,radio,"Agreed to participate?","yes, Yes | no, No | unsure_contact_again, Unsure, contact again | unsure_more_info, Unsure, more information is needed (specify in notes) | lost_to_follow_up, Lost to follow up | not_uci_patient, Not UCI Health patient",,,,,,,,LV,,,,
+decision_means,decision,,radio,"Decision confirmed by what means?","phone, Phone | text_message, Text message | email, Email | in_person, In-person during in-person recruitment | other, Other methods (specify in notes)",,,,,,,,LV,,,,
+decision_declined_reasons,decision,,checkbox,"Reason(s) for declining","portal, Participant portal issue | privacy, Privacy concerns | time, Time commitment | medical, Medical reasons | blood_draw, Doesn't want to have a blood draw | language, Language barrier | moved, Moved to another state | interest, Not interested | unknown, Unknown / declined to disclose | other, Other reasons (specify in notes)",,,,,,"[decision] = 'no'",,LV,,,,
+decision_notes,decision,,notes,Notes,,,,,,,,,LV,,,,
+meeting_location,meeting_planning,"
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN><HR style=""background-color:LightGray;height:1px""><SPAN style=""font-weight:normal;color:Red"">CLINIC APPOINTMENT: [appointment_clinic], [appointment_date] [appointment_time]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[email_address]%3e"" style=""color:DeepSkyBlue"">[email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NEW/CORRECTED EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[new_email_address]%3e"" style=""color:DeepSkyBlue"">[new_email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NIH INVITATION CODE: [nih_invitation_code]</SPAN>
+
+<SPAN style=""color:Red"">OPEN <A href=""http://hai.ics.uci.edu/allofus/calendar/"" target=""_blank"" style=""color:DeepSkyBlue"">STUDY CALENDAR</A></SPAN>
+
+",radio,"Meeting location","Gottschalk, Gottschalk Medical Plaza | Gavin_Herbert, Gavin Herbert Eye Institute | Santa_Ana, Santa Ana Family Health Center | Anaheim, Anaheim Family Health Center | UCIMC_Endocrinology, UCIMC Endocrinology (Building #29) | UCIMC_Geriatrics, UCIMC Geriatrics (Building #25) | UCIMC_Internal_Medicine, UCIMC Internal Medicine (Building #29) | UCIMC_ICTS, UCIMC ICTS (Building #25, 2nd floor) | UCIMC_ER, UCIMC ER (Building #1)",,,,,,,,LV,,,,
+meeting_date_time,meeting_planning,,text,"Meeting date and time",,,datetime_mdy,,,,,,LV,,,,
+meeting_crc_assigned,meeting_planning,,radio,"CRC for the meeting","Andrea, Andrea Alvarez | Jennifer, Jennifer Encizo | Irene, Irene Masunaka | Gabriela, Gabriela Medina | Maira, Maira Moctezuma | Byron, Byron Villagran",,,,,,,,LV,,,,
+meeting_study_info_received_confirmed,meeting_planning,,checkbox,"Confirmed that participant has received both Study URL and NIH Invitation Code? If not, provide them now.","yes, Yes, confirmed",,,,,,,,LV,,,,
+meeting_portal_assistance_needed,meeting_planning,,radio,"Participant needs assistance in completing consent and/or PPI on site?","yes, Yes | no, No",,,,,,,,LV,,,,
+meeting_planning_notes,meeting_planning,,notes,Notes,,,,,,,,,LV,,,,
+meeting_reminder_date,premeeting_reminder,"
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN><HR style=""background-color:LightGray;height:1px""><SPAN style=""font-weight:normal;color:Red"">PREFERRED METHOD(S) OF CONTACT: [preferred_methods_of_contact]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PHONE NUMBER: [phone_number]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NEW/CORRECTED PHONE NUMBER: [new_phone_number]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[email_address]%3e"" style=""color:DeepSkyBlue"">[email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NEW/CORRECTED EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[new_email_address]%3e"" style=""color:DeepSkyBlue"">[new_email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PREFERRED LANGUAGE: [preferred_language]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">UPDATED LANGUAGE PREFERENCE: [new_preferred_language]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NIH INVITATION CODE: [nih_invitation_code]</SPAN>
+
+",text,"Reminder date",,,date_mdy,,,,,,LV,,,,
+meeting_reminder_means,premeeting_reminder,,radio,"Reminder conveyed by what means?","phone, Phone | text_message, Text message | email, Email | other, Other methods (specify in notes)",,,,,,,,LV,,,,
+meeting_portal_requirements_completed,premeeting_reminder,,checkbox,"Has participant completed all requirements in Participant Portal? Check HealthPro before asking.","general_consent, General consent | ehr_consent, EHR consent | basics, Basics survey | overall_health, Overall health survey | lifestyle, Lifestyle survey",,,,,,,,LV,,,,
+meeting_reminder_notes,premeeting_reminder,,notes,Notes,,,,,,,,,LV,,,,
+meeting_took_place,meeting_results,"
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN>
+
+",radio,"Meeting took place?","yes, Yes | no_show, No show | rescheduled, Rescheduled (add new meeting appointment on Form 8) | canceled_withdrawn, Canceled and withdrawn (specify withdrawing information on Form 10) | canceled_portal, Canceled due to portal issue | canceled_consent, Canceled due to refusal to provide study consent and/or EHR consent; referred to the direct volunteer program | canceled_other, Canceled due to other reasons (specify in notes)",,,,,,,,LV,,,,
+meeting_rescheduled_or_canceled_same_day,meeting_results,,radio,"Meeting rescheduled or canceled on the same day of the appointment?","yes, Yes | no, No, rescheduled or canceled ahead of time",,,,,,"[meeting_took_place] = 'rescheduled' OR [meeting_took_place] = 'canceled_portal' OR [meeting_took_place] = 'canceled_consent' OR [meeting_took_place] = 'canceled_other'",,LV,,,,
+meeting_ehr_consent,meeting_results,,radio,"EHR consent provided in Patient Portal?","yes, Yes | declined, No, declined to provide | will_provide, Not yet, but will provide it | other, Other (specify in notes)",,,,,,"[meeting_took_place] = 'yes'",,LV,,,,
+meeting_pmb_collected,meeting_results,,checkbox,"Data or biospecimens collected","physical, Physical Measurements | blood, Blood | saliva, Saliva | urine, Urine",,,,,,"[meeting_took_place] = 'yes'",,LV,,,,
+meeting_notes,meeting_results,,notes,Notes,,,,,,,,,LV,,,,
+rescheduled_meeting_location,rescheduled_meetings,"
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN><HR style=""background-color:LightGray;height:1px""><SPAN style=""font-weight:normal;color:Red"">CLINIC APPOINTMENT: [appointment_clinic], [appointment_date] [appointment_time]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[email_address]%3e"" style=""color:DeepSkyBlue"">[email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NEW/CORRECTED EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[new_email_address]%3e"" style=""color:DeepSkyBlue"">[new_email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NIH INVITATION CODE: [nih_invitation_code]</SPAN>
+
+<SPAN style=""color:Red"">OPEN <A href=""http://hai.ics.uci.edu/allofus/calendar/"" target=""_blank"" style=""color:DeepSkyBlue"">STUDY CALENDAR</A></SPAN>
+
+",radio,"Meeting location","Gottschalk, Gottschalk Medical Plaza | Gavin_Herbert, Gavin Herbert Eye Institute | Santa_Ana, Santa Ana Family Health Center | Anaheim, Anaheim Family Health Center | UCIMC_Endocrinology, UCIMC Endocrinology (Building #29) | UCIMC_Geriatrics, UCIMC Geriatrics (Building #25) | UCIMC_Internal_Medicine, UCIMC Internal Medicine (Building #29) | UCIMC_ICTS, UCIMC ICTS (Building #25, 2nd floor) | UCIMC_ER, UCIMC ER (Building #1)",,,,,,,,LV,,,,
+rescheduled_meeting_date_time,rescheduled_meetings,,text,"Meeting date and time",,,datetime_mdy,,,,,,LV,,,,
+rescheduled_meeting_crc_assigned,rescheduled_meetings,,radio,"CRC for the meeting","Andrea, Andrea Alvarez | Jennifer, Jennifer Encizo | Irene, Irene Masunaka | Gabriela, Gabriela Medina | Maira, Maira Moctezuma | Byron, Byron Villagran",,,,,,,,LV,,,,
+rescheduled_meeting_study_info_received_confirmed,rescheduled_meetings,,checkbox,"Confirmed that participant has received both Study URL and NIH Invitation Code? If not, provide them now.","yes, Yes, confirmed",,,,,,,,LV,,,,
+rescheduled_meeting_portal_assistance_needed,rescheduled_meetings,,radio,"Participant needs assistance in completing consent and/or PPI on site?","yes, Yes | no, No",,,,,,,,LV,,,,
+rescheduled_meeting_planning_notes,rescheduled_meetings,,notes,"Meeting planning notes",,,,,,,,,LV,,,,
+rescheduled_meeting_reminder_date,rescheduled_meetings,"
+<SPAN style=""color:Red"">MEETING REMINDER</SPAN>
+
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN><HR style=""background-color:LightGray;height:1px""><SPAN style=""font-weight:normal;color:Red"">PREFERRED METHOD(S) OF CONTACT: [preferred_methods_of_contact]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PHONE NUMBER: [phone_number]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NEW/CORRECTED PHONE NUMBER: [new_phone_number]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[email_address]%3e"" style=""color:DeepSkyBlue"">[email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NEW/CORRECTED EMAIL ADDRESS: <A href=""mailto:[first_name]%20[last_name]%20%3c[new_email_address]%3e"" style=""color:DeepSkyBlue"">[new_email_address]</A></SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">PREFERRED LANGUAGE: [preferred_language]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">UPDATED LANGUAGE PREFERENCE: [new_preferred_language]</SPAN>
+
+<SPAN style=""font-weight:normal;color:Red"">NIH INVITATION CODE: [nih_invitation_code]</SPAN>
+
+",text,"Meeting reminder date",,,date_mdy,,,,"[rescheduled_meeting_date_time] <> ''",,LV,,,,
+rescheduled_meeting_reminder_means,rescheduled_meetings,,radio,"Reminder conveyed by what means?","phone, Phone | text_message, Text message | email, Email | other, Other methods (specify in notes)",,,,,,"[rescheduled_meeting_date_time] <> ''",,LV,,,,
+rescheduled_meeting_portal_requirements_completed,rescheduled_meetings,,checkbox,"Has participant completed all requirements in Participant Portal? Check HealthPro before asking.","general_consent, General consent | ehr_consent, EHR consent | basics, Basics survey | overall_health, Overall health survey | lifestyle, Lifestyle survey",,,,,,"[rescheduled_meeting_date_time] <> ''",,LV,,,,
+rescheduled_meeting_reminder_notes,rescheduled_meetings,,notes,"Meeting reminder notes",,,,,,,"[rescheduled_meeting_date_time] <> ''",,LV,,,,
+rescheduled_meeting_took_place,rescheduled_meetings,"
+<SPAN style=""color:Red"">MEETING RESULTS</SPAN>
+
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN>
+
+",radio,"Meeting took place?","yes, Yes | no_show, No show | rescheduled, Rescheduled (go to top of this form to add new meeting appointment) | canceled_withdrawn, Canceled and withdrawn (specify withdrawing information on Form 10) | canceled_portal, Canceled due to portal issue | canceled_consent, Canceled due to refusal to provide study consent and/or EHR consent; referred to the direct volunteer program | canceled_other, Canceled due to other reasons (specify in notes)",,,,,,"[rescheduled_meeting_date_time] <> ''",,LV,,,,
+rescheduled_meeting_rescheduled_or_canceled_same_day,rescheduled_meetings,,radio,"Meeting rescheduled or canceled on the same day of the appointment?","yes, Yes | no, No, rescheduled or canceled ahead of time",,,,,,"[rescheduled_meeting_took_place] = 'rescheduled' OR [rescheduled_meeting_took_place] = 'canceled_portal' OR [rescheduled_meeting_took_place] = 'canceled_consent' OR [rescheduled_meeting_took_place] = 'canceled_other'",,LV,,,,
+rescheduled_meeting_ehr_consent,rescheduled_meetings,,radio,"EHR consent provided in Patient Portal?","yes, Yes | declined, No, declined to provide | will_provide, Not yet, but will provide it | other, Other (specify in notes)",,,,,,"[rescheduled_meeting_took_place] = 'yes'",,LV,,,,
+rescheduled_meeting_pmb_collected,rescheduled_meetings,,checkbox,"Data or biospecimens collected","physical, Physical Measurements | blood, Blood | saliva, Saliva | urine, Urine",,,,,,"[rescheduled_meeting_took_place] = 'yes'",,LV,,,,
+rescheduled_meeting_notes,rescheduled_meetings,,notes,"Meeting notes",,,,,,,"[rescheduled_meeting_date_time] <> ''",,LV,,,,
+all_study_requirements_completed,gift_card,"
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN>
+
+",checkbox,"All study requirements completed?","yes, Yes",,,,,,,,LV,,,,
+pmi_id,gift_card,,text,"Participant ID in HealthPro (also known as PMI ID)",,,,,,y,"[all_study_requirements_completed(yes)] = 1",,LV,,,,
+willingness_for_future_participation,gift_card,,radio,"If there are further study activities of All of Us, is participant willing to continue to be involved?","unlikely, Unlikely | somewhat_likely, Somewhat likely | very_likely, Very likely | unsure, Unsure | unknown, Unknown / declined to disclose | other, Other (please specify)",,,,,,"[all_study_requirements_completed(yes)] = 1",,LV,,,,
+willingness_for_future_participation_notes,gift_card,,notes,"Notes about willingness to participate in the future",,,,,,,"[all_study_requirements_completed(yes)] = 1",,LV,,,,
+gift_card_dispensed,gift_card,"
+<SPAN style=""color:Red"">GIFT CARD INFORMATION</SPAN>
+
+",radio,"Gift card dispensed?","in_person, Yes, in person | by_mail, Yes, by mail | not_dispensed, No",,,,,,"[willingness_for_future_participation] <> ''",,LV,,,,
+gift_card_not_dispensed_in_person_reasons,gift_card,,notes,"Reason(s) why gift card was not dispensed in person",,,,,,,"[gift_card_dispensed] = 'by_mail' OR [gift_card_dispensed] = 'not_dispensed'",,LV,,,,
+gift_card_mailing_address_current,gift_card,,radio,"Is the address on file ""[street_address_line_1] [street_address_line_2], [city], [state] [zip_code]"" current?","yes, Yes | no, No",,,,,,"[gift_card_dispensed] = 'by_mail'",,LV,,,,
+gift_card_new_mailing_address,gift_card,,notes,"Specify new mailing address",,,,,,y,"[gift_card_mailing_address_current] = 'no'",,LV,,,,
+gift_card_mailed_date,gift_card,,text,"Gift card mailed date",,,date_mdy,,,,"[gift_card_dispensed] = 'by_mail'",,LV,,,,
+gift_card_number,gift_card,,text,"Gift card #",,,,,,,"[gift_card_dispensed] = 'in_person' OR [gift_card_dispensed] = 'by_mail'",,LV,,,,
+gift_card_amount,gift_card,,radio,"Gift card amount (for reconciliation purpose)","25, $25",,,,,,"[gift_card_dispensed] = 'in_person' OR [gift_card_dispensed] = 'by_mail'",,LV,,,,
+gift_card_notes,gift_card,,notes,"Notes about gift card dispensing",,,,,,,"[gift_card_dispensed] <> ''",,LV,,,,
+gift_card_participant_signature,gift_card,"
+<SPAN style=""color:Red"">GIFT CARD SIGNATURES</SPAN>
+
+",file,"Participant signature",,,signature,,,,"[gift_card_dispensed] = 'in_person'",,,,,,
+gift_card_participant_signature_date,gift_card,,text,"Participant signature date",,,date_mdy,,,,"[gift_card_dispensed] = 'in_person'",,LV,,,,
+gift_card_crc,gift_card,,radio,"CRC who dispensed the gift card","Andrea, Andrea Alvarez | Jennifer, Jennifer Encizo | Irene, Irene Masunaka | Gabriela, Gabriela Medina | Maira, Maira Moctezuma | Byron, Byron Villagran",,,,,,"[gift_card_dispensed] = 'in_person' OR [gift_card_dispensed] = 'by_mail'",,LV,,,,
+gift_card_crc_signature,gift_card,,file,"CRC signature",,,signature,,,,"[gift_card_dispensed] = 'in_person' OR [gift_card_dispensed] = 'by_mail'",,,,,,
+gift_card_crc_signature_date,gift_card,,text,"CRC signature date",,,date_mdy,,,,"[gift_card_dispensed] = 'in_person' OR [gift_card_dispensed] = 'by_mail'",,LV,,,,
+participant_feedback_survey_dummy,gift_card,"
+<SPAN style=""color:Red"">PARTICIPANT FEEDBACK SURVEY</SPAN>
+
+",radio,"
+<A href=""https://www.surveymonkey.com/r/GavinHerbertUCI"" target=""_blank"" style=""font-weight:normal;color:DeepSkyBlue"">Gavin Herbert Eye Institute</A>
+
+<A href=""https://www.surveymonkey.com/r/UCIGottschalk"" target=""_blank"" style=""font-weight:normal;color:DeepSkyBlue"">Gottschalk Medical Plaza</A>",,,,,,,"[gift_card_dispensed] <> ''",,LV,,,,
+withdrawn,withdraw,"
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN>
+
+",checkbox,"Participant decided to withdraw?","yes, Yes",,,,,,,,LV,,,,
+withdrawn_date,withdraw,,text,"Withdrawn date",,,date_mdy,,,,"[withdrawn(yes)] = 1",,LV,,,,
+withdrawn_recorded_in_healthpro,withdraw,,radio,"Has participant withdrawn through Patient Portal?","yes, Yes | pending, Not yet, but has instructed participant to do so | not_applicable, Not applicable, participant has not enrolled in Participant Portal | other, Other (specify in notes)",,,,,,"[withdrawn(yes)] = 1",,LV,,,,
+withdrawn_reasons,withdraw,,checkbox,"Reason(s) for withdrawing","portal, Participant portal issue | privacy, Privacy concerns | time, Time commitment | medical, Medical reasons | blood_draw, Doesn't want to have a blood draw | language, Language barrier | moved, Moved to another state | interest, No longer interested | unknown, Unknown / declined to disclose | other, Other reasons (specify in notes below)",,,,,,"[withdrawn(yes)] = 1",,LV,,,,
+withdrawn_notes,withdraw,,notes,Notes,,,,,,,"[withdrawn(yes)] = 1",,LV,,,,
+thank_you_note_sent,admin,"
+<SPAN style=""color:Red"">PARTICIPANT NAME: [last_name], [first_name]</SPAN>
+
+<SPAN style=""color:Red"">DATE OF BIRTH: [dob]</SPAN><HR style=""background-color:LightGray;height:1px""><SPAN style=""font-weight:normal;color:Red"">THIS FORM IS AUTOMATICALLY UPDATED BY THE SYSTEM. DO NOT MODIFY.</SPAN>
+
+",checkbox,"Thank-you note sent?","yes, Yes",,,,,,,,LV,,,,
