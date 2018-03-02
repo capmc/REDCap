@@ -2,13 +2,13 @@
 
 kai.zheng@uci.edu
 
-<B>Feb 28, 2018</B>
+<B>Mar 2, 2018</B>
 
-(1) In question "Agreed to participate?" on "Form 4. Decision", added a new response option:
+(1) On "Form 1. Profile & Clinic Appointment," added two new questions:
 
-On "Form 1. Profile & Clinic Appointment," added a new question:
+Do not use. Duplicated record. Information about this participant is recorded under another Study ID.
 
-Exclude? (Possible reasons for exclusion: duplicated record, responded "unsubscribe" to study emails, deceased, etc.)
+Do not contact. Deceased or declined to receive future study communications.
 
 <B>Dec 11, 2017</B>
 
