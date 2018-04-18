@@ -12,10 +12,8 @@ datediff('today', [rescheduled_meeting_date_time], 'd', true) > 0 AND datediff('
 
 4) Volunteers Not Yet Enrolled
 
-(
-	not_contain([study_id], 'PM-')
-	OR [volunteer(yes)] = 1
-)
+[volunteer(yes)] = 1
+
 AND [meeting_date_time] = ''
 
 5) Contact #1 Due
