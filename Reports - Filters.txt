@@ -106,7 +106,7 @@ Report 18 is required for Study Statistics. See http://hai.ics.uci.edu/allofus/s
 
 18) Admin: Recruitment Statistics
 
-[initial_outreach_date] <> '' AND contains([study_id], 'PM-')
+[initial_outreach_date] <> ''
 
 19) Admin: Thank-You Note to be Sent
 
