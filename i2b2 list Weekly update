@@ -1,0 +1,307 @@
+%LET path=C:\Users\Qiaohong Hu\OneDrive - University of Southern California\AoU\removing duplicates\;
+%LET i2b2=All_Of_Us Appts_11-02-2018.csv;
+%LET redcap=KeckAllOfUsResearchP_DATA_2018-11-06_1245.csv;
+
+PROC IMPORT OUT= WORK.remove
+            DATAFILE= "&path&redcap"
+            DBMS=CSV REPLACE;
+     GETNAMES=YES;
+     DATAROW=2;
+RUN;
+
+
+/*Cleaned i2b2 file- REMOVE MISSING MRN*/
+PROC IMPORT OUT= WORK.i2b2
+            DATAFILE= "&path&i2b2"
+            DBMS=CSV REPLACE;
+     GETNAMES=YES;
+     DATAROW=2;
+RUN;
+/*proc contents data=i2b2;
+run;
+
+proc freq data=i2b2; tables appointment_date;
+run;*/
+/*Rename variables to match REDCap variable names*/
+data i2b4;
+set i2b2 (rename=(provider_name=appointment_md));
+if mrn=. then delete;
+if email_address=. and phone_number=. then delete;
+if email_address=. and phone_number=0 then delete;
+if appointment_md="TAYLOR MD, GREGORY" then delete;
+if appointment_date <= '19SEP2018'd then delete; /*delete appointments within next 2 days*/
+where preferred_language="English" or preferred_language="Spanish" ;
+run;
+
+/*proc freq data=i2b4;
+tables appointment_md preferred_language appointment_date; run; */
+
+data i2b5;
+set i2b4;
+where appointment_clinic="Doctors of USC Family Medicine" or
+appointment_clinic="Internal Medicine Cardiology" or
+appointment_clinic="Internal Medicine Pulmonary" or
+appointment_clinic="KH-USC HCC II Radiology" or
+appointment_clinic="KH-USC NC" or
+appointment_clinic="KH-USC NS" or
+appointment_clinic="Lab Draw - HCC2 1st Floor" or
+appointment_clinic="Ophthalmology Roski Los Angeles" or
+appointment_clinic="Orthopedics - HCC2 2nd floor" or
+appointment_clinic="Otolaryngology and Head and Neck Surgery" or
+appointment_clinic="Psoriasis Center" or
+appointment_clinic="Treatment Center HC3" or
+appointment_clinic="USC GI Lab" or
+appointment_clinic="USC Interventional Services" or
+appointment_clinic="USC Main OR" or
+appointment_clinic="USC Pain Center" or
+appointment_clinic="USC START Department" or
+appointment_clinic="USC-CA" or
+appointment_clinic="USC-CF" or
+appointment_clinic="USC-CV" or
+appointment_clinic="USC-HC" or
+appointment_clinic="USC-IF" or
+appointment_clinic="USC-IN" or
+appointment_clinic="USC-IO" or
+appointment_clinic="USC-IS" or
+appointment_clinic="USC-IV" or
+appointment_clinic="USC-LA" or
+appointment_clinic="USC-NP" or
+appointment_clinic="USC-PF" or
+appointment_clinic="USC-PO" or
+appointment_clinic="USC-PT" or
+appointment_clinic="USC-RA" or
+appointment_clinic="USC-SC Clinic" or
+appointment_clinic="USC-SL" or
+appointment_clinic="USC-SP" or
+appointment_clinic="USC-VC"; run;
+
+/*proc freq data=i2b5;
+tables appointment_clinic;
+run; */
+
+data i2b3;
+set i2b5;
+if appointment_md="HOCHMAN MD, MICHAEL E" or
+appointment_md="KARP MD, MICHAEL" or
+appointment_md="HONG MD, KURT M" or
+appointment_md="VASQUEZ MD, MABEL" or
+appointment_md="SAPKIN MD, JOSHUA D" or
+appointment_md="BEN-ARI MD, RON" or
+appointment_md="KHAN MD, SHAZIA S" or
+appointment_clinic="Otolaryngology and Head and Neck Surgery" then database="Henne";
+else database="i2b2"; run;
+
+/*proc freq data=i2b3;
+tables database;
+run;*/
+
+/*Check what format mrn is in for both
+proc contents data=i2b3;
+run;
+proc contents data=remove;
+run;
+
+proc freq data=i2b3;
+tables mrn;
+run; */
+
+data i2b3;
+set i2b3;
+mrn1=mrn+0;
+drop mrn;
+run;
+proc sort data=i2b3(rename=(mrn1=mrn))
+out=i2b6;
+by mrn descending appointment_date descending appointment_time;
+run;
+
+data i2b7;
+set i2b6;
+by mrn;
+if first.mrn;
+run;
+
+data remove1;
+set remove;
+/*mrn2=input(mrn,11.)/*either mrn or study_id needs to be interchanged between numeric and character*/
+phone_number2=phone_number;
+email_address2=email_address;
+run;
+data remove3;
+set remove1;
+drop /*mrn*/ phone_number email_address; run;
+/*data remove4;
+set remove3;
+mrn=mrn2;
+drop mrn2; run; */
+data removed;
+set remove3 (keep=mrn decision meeting_date_time meet_time_date_of study_id email_address2 phone_number2); run;
+
+proc sort data=removed;
+by mrn; run;
+
+/*Only keep data from i2b2 list*/
+data merged_i2b2_removedecisions;
+merge removed i2b7 (in=a);
+by mrn;
+if a;
+run;
+
+data removed_i2b2;
+set merged_i2b2_removedecisions;
+if decision="yes" or decision="no" or meeting_date_time^=. or meet_time_date_of^=. then delete;
+run;
+
+data removed_i2b2_2;
+set removed_i2b2 (drop=meeting_date_time meet_time_date_of decision); run;
+proc sort data=removed_i2b2_2;
+by study_id; run;
+
+data outexist;
+set removed_i2b2_2;
+if study_id ne .;
+run;
+
+data outnot;
+set removed_i2b2_2;
+if study_id = .;
+run;
+
+DATA redcap1;
+        SET remove;
+        phone_number=compress(phone_number,'','kd');
+        phone_number=compress(phone_number);
+        phone=phone_number+0;
+RUN;
+DATA redcap2;
+        SET redcap1;
+        format dob mmddyy10.;
+        KEEP study_id last_name first_name dob email_address phone /*appointment_date*/;
+run;
+
+data outnot1;
+set outnot;
+keep mrn first_name last_name dob email_address phone_number;
+run;
+
+data ophone;
+set outnot1;
+if phone_number ne .;
+run;
+
+proc sort data=ophone;
+by phone_number;
+run;
+
+data rphone;
+set redcap2;
+if phone ne .;
+if phone ne 0;
+phone_number=phone;
+drop phone;
+run;
+
+proc sort data=rphone;
+by phone_number;
+run;
+
+data phone1;
+merge ophone(in=a) rphone(RENAME=(first_name=firstname last_name=lastname email_address=email dob=date_of_birth));
+by phone_number;
+if a;
+run;
+
+/*Same phone numbers and names*/
+DATA phnm;
+        SET phone1;
+        IF upcase(firstname)=upcase(first_name)and upcase(lastname)=upcase(last_name);
+RUN;
+
+/* Same phone numbers and names but different dob*/
+DATA check1;
+        SET phnm;
+        IF date_of_birth=dob THEN delete;
+RUN;
+
+
+
+/* 2.Match with dob and names*/
+PROC SORT DATA=outnot1 OUT=odob;
+        BY dob;
+RUN;
+PROC SORT DATA=redcap2 OUT=rdob;
+        BY dob;
+RUN;         
+data rdob;
+set rdob; 
+if dob  ne .; 
+run;
+
+DATA dob1;
+        MERGE  odob(in=a) rdob(RENAME=(first_name=firstname last_name=lastname email_address=email));
+        BY dob;
+        IF a;  
+		IF study_id ne .;
+RUN;
+/*Same dob and names*/
+DATA dobnm;
+        SET dob1;
+        IF upcase(firstname)=upcase(first_name)and upcase(lastname)=upcase(last_name);
+RUN;
+/*same dob and names, but different phone numbers*/
+DATA check2;
+        SET dobnm;
+        IF phone=phone_number THEN DELETE;
+RUN;
+/*Same dob and phone numbers*/
+DATA dobph;
+        SET dob1;
+        IF phone ne .;
+        IF phone_number ne .;
+        IF phone=phone_number;
+RUN;
+/*Same dob and phone numbers but different names*/
+DATA check3;
+        SET dobph;
+        IF upcase(firstname)=upcase(first_name)and upcase(lastname)=upcase(last_name) THEN DELETE;
+RUN;
+PROC SORT DATA=phnm;
+        BY study_id;
+RUN;
+PROC SORT DATA=check2;
+        BY study_id;
+RUN;
+PROC SORT DATA=check3;
+        BY study_id;
+RUN;
+/*Update upcoming participants*/
+DATA one;
+        MERGE phnm check2 check3;
+        BY study_id;
+RUN;
+
+DATA outexist1;
+	MERGE one(keep=study_id) outexist;
+	BY study_id;
+	format appointment_time time5.;
+	keep study_id mrn cdm_id appointment_clinic appointment_date appointment_time preferred_language appointment_md database;
+RUN;
+
+DATA outnot2;
+	merge outexist1(in=a keep=study_id) removed_i2b2_2;
+	format appointment_time time5.;
+	by study_id;
+	if a then delete;
+	keep study_id mrn cdm_id appointment_clinic appointment_date appointment_time preferred_language appointment_md database;
+run;
+
+PROC EXPORT DATA= WORK.outexist1
+            OUTFILE= "&path.exist.csv"
+            DBMS=CSV LABEL REPLACE;
+     PUTNAMES=YES;
+RUN;
+PROC EXPORT DATA= WORK.outnot2
+            OUTFILE= "&path.create.csv"
+            DBMS=CSV LABEL REPLACE;
+     PUTNAMES=YES;
+RUN;
